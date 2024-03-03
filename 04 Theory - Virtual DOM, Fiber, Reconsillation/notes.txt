@@ -1,0 +1,23 @@
+1. Virtual DOM is not really used anymore.
+
+2. React fibre : key features include the ability to pause, abort, or reuse work as new updates come in; the ability to assign priority to different types of updates; and new concurrency primitives.
+
+3. Reconciliation
+The algorithm React uses to diff one tree (browser DOM tree) with another (created using createRoot in jsx) to determine which parts need to be changed.
+
+4. Reconciliation is the algorithm behind what is popularly understood as the "virtual DOM."
+
+5. Although Fiber is a ground-up rewrite of the reconciler, the high-level algorithm described in the React docs will be largely the same. The key points are:
+
+  a. Different component types are assumed to generate substantially different trees. React will not attempt to diff them, but rather replace the old tree   completely.
+  b. Diffing of lists is performed using keys. Keys should be "stable, predictable, and unique." (example given below, from interview perspective this point   is important)
+   - Suppose there is an array.
+   - the array should be iterated and voh array ko lana hai in lists, buttons, paragraph, etc.
+   - If keys are not being used , the react will give the warning and assigned the values
+   - But why should we use keys ? => Because if we want to increase performance lists (as written in Fiber algorithm) then we should have unique keys
+
+6. What is fiber ? 
+   - pause work and come back to it later.
+   - assign priority to different types of work.
+   - reuse previously completed work.
+   - abort work if it's no longer needed.
