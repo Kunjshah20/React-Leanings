@@ -8,8 +8,15 @@ function App() {
   const addValue = () => {
     // counter = counter + 1
     // setCounter(counter + 1)
+    // setCounter(counter + 1)
+    // setCounter(counter + 1)
+    // setCounter(counter + 1) // O/P = 1,2,3,4, .... because useState sends the UI changes in batches
     if(counter < 20){ // hypothetial situation
+      // setCounter( (prevCounter) => prevCounter + 1) // for understanding : setCounter uses callback fxn   setCounter(prevState => prevState + 1)
       setCounter(prevCounter => prevCounter + 1);
+      // setCounter(prevCounter => prevCounter + 1);
+      // setCounter(prevCounter => prevCounter + 1);
+      // setCounter(prevCounter => prevCounter + 1); // O/P : 4, 8, 12, 16, ....
       console.log("value added");
     }else{
       console.log("Can't add value greater than 20");
