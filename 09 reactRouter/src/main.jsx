@@ -49,7 +49,7 @@ const router = createBrowserRouter(
       <Route 
       loader={githubInfoLoader} 
       // what is loader ? - use to optimise the page
-      // how ?? - when the user cursor comes at the "GitHub" it starts loading the page even before clicking on the "GitHub". And also saves the data in memory (cache)
+      // how ?? - when the user cursor comes at the "GitHub" it starts loading the data even before clicking on the "GitHub". And also saves the data in memory (cache)
       path='github'
       element = {<GitHub />} />
     </Route>

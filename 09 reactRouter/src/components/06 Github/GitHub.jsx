@@ -38,3 +38,13 @@ export const githubInfoLoader = async () => {
   const response = await fetch('https://api.github.com/users/hiteshchoudhary')
   return response.json()
 }
+
+// Notes :
+// 1. Loader Invocation:
+// When the route matching path='github' is accessed, the loader function (githubInfoLoader) is invoked automatically by react-router-dom before rendering the GitHub component.
+// This means that before the GitHub component is rendered, the loader function fetches data from the GitHub API.
+
+// 2. Accessing Loaded Data in Component:
+// Inside the GitHub component, you're using the useLoaderData hook provided by react-router-dom.
+// This hook allows you to access the data that was loaded by the loader function (githubInfoLoader) in the parent route.
+// When the GitHub component is rendered, useLoaderData retrieves the data that was loaded by the loader function and stores it in the data variable.
