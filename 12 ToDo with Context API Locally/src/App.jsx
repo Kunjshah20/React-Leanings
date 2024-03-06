@@ -7,33 +7,34 @@ import TodoItem from './components/TodoItem'
 function App() {
   const [todos, setTodos] = useState([])
 
-  const addTodo = (todo) => {
-    setTodos((prev) => [{ id: Date.now(), ...todo }, ...prev])
+  const addTodo = (todoMsg) => {
+    setTodos((prev) => [{ id: Date.now(), ...todoMsg }, ...prev])
   }
 
   const updateTodo = (id, todo) => {
     setTodos((prev) =>
-      prev.map((prevTodo) => (prevTodo.id === id ? todo : prevTodo)),
+      prev.map((prevTodoMsg) => (prevTodoMsg.id === id ? todo : prevTodoMsg)),
     )
   }
 
   const deleteTodo = (id) => {
-    setTodos((prev) => prev.filter((todo) => todo.id !== id))
+    setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id))
   }
 
   const toggleComplete = (id) => {
     //console.log(id);
     setTodos((prev) =>
-      prev.map((prevTodo) =>
-        prevTodo.id === id
-          ? { ...prevTodo, completed: !prevTodo.completed }
-          : prevTodo,
+      prev.map((prevTodoMsg) =>
+      prevTodoMsg.id === id
+          ? { ...prevTodoMsg, completed: !prevTodoMsg.completed }
+          : prevTodoMsg,
       ),
     )
   }
 
   useEffect(() => {
-    const todos = JSON.parse(localStorage.getItem('todos'))
+    const todos = JSON.parse(localStorage.getItem('todos')); 
+    // 'todos' in getItem is object defined in context
 
     if (todos && todos.length > 0) {
       setTodos(todos)
